@@ -32,16 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         infoText = (TextView) findViewById(R.id.infoText);
 
-
-
-
-    }
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-
         // Sprawdzam czy na tablecie/tel jest moduł BT (dobra praktyka tylko, przeciez wszystkie majo)
 
         checkBtAvaliability();
@@ -69,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+
+
 
     }
 
@@ -83,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         infoText.setText(mList.get(which)); // Wybieram za pomoca int which ktory element z Listy mList wybieram (HC-06)
 
+                        Intent nIntent = new Intent(MainActivity.this, ComunicationActivity.class);
+                        nIntent.putExtra("EXTRA_ADRESS",mList.get(which));
+                        startActivity(nIntent);
 
                     }
 
