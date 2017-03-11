@@ -1,6 +1,7 @@
 package com.example.matt.onresumeapp;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothDevice mBluetoothDevice;
     private List<String> mList = new ArrayList<String>();
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String deviceName = device.getName();  // Pobierz nazwe urzadzenia
                 String deviceAdress = device.getAddress(); // Pobierz adres MAC
-                mList.add(deviceName + "\n" + deviceAdress);
+                mList.add(deviceAdress);
 
             }
 
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Intent nIntent = new Intent(MainActivity.this, ComunicationActivity.class);
                         nIntent.putExtra("EXTRA_ADRESS",mList.get(which));
+                        progress = ProgressDialog.show(MainActivity.this, "Conncetcing...", "Please Wait!");
                         startActivity(nIntent);
 
                     }
