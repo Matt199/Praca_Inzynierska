@@ -5,7 +5,7 @@ Praca na egzamin inzynierski w trakcie budowy
 
 - [X] Make connection with HC-06
 - [X] Start receiving data from Arduino!
-- [ ] Make demo with one motor and two diods on Arduino board
+- [X] Make demo with one motor and two diods on Arduino board
 - [ ] Calculate received data, change units etc.
 - [ ] Connect with car using Arduino 
 - [ ] Convert CAN data to readable data
